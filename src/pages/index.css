@@ -12,21 +12,37 @@
   padding-top: 5px;
 }
 
-.intro {
+.intro-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background: #F2E8CF;
   padding: 72px 0;
   margin-bottom: 16px;
+  gap: 2em;
 }
 
-.intro-title {
+.intro-title-home {
   color: #2A4747;
   font-size: 24px;
   margin: 0 195px 14px;
+  font-size: 30px;
+  font-weight: 600;
 }
 
-.intro-description {
-  font-size: 16px;
+.intro-description-home {
+  font-size: 19px;
   margin: 0 89px 12px;
+}
+
+.text-know-home{
+  color: white;
+  padding: 4px;
+}
+
+.text-zenkod-home{
+  color: #D57A66;
 }
 
 .learn-more {
@@ -34,7 +50,7 @@
   justify-content: center;
   align-items: center;
   background: #D57A66;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 5px;
   margin: 0 240px;
 }
