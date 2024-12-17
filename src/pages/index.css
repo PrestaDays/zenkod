@@ -77,31 +77,3 @@
   margin-top: -123px;
   margin: 0 17px;
 }
-
-.footer {
-  background: #2A4747;
-  padding: 15px 19px;
-}
-
-.footer-content {
-  display: flex;
-  align-items: center;
-  margin-bottom: 2px;
-}
-
-.footer-content span {
-  color: #FFFFFF;
-  font-size: 16px;
-  margin-right: 4px;
-}
-
-.footer-info {
-  display: flex;
-  align-items: flex-start;
-}
-
-.footer-info span {
-  color: #FFFFFF;
-  font-size: 12px;
-  margin-right: 59px;
-}
