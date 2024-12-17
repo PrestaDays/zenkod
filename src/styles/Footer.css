@@ -1,27 +1,22 @@
 .footer {
     background: #2A4747;
-    padding: 15px 19px;
-  }
+    padding: 50px;
+    color: white;
+}
 
-  .footer-content {
+.container-footer{
     display: flex;
-    align-items: center;
-    margin-bottom: 2px;
-  }
-  
-  .footer-content span {
-    color: #FFFFFF;
-    font-size: 16px;
-    margin-right: 4px;
-  }
-  
-  .footer-info {
+    flex-direction: row;
+    gap: 10em;
+}
+
+h3{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+}
+
+.container-footer-content-one{
     display: flex;
-    align-items: flex-start;
-  }
-  
-  .footer-info span {
-    color: #FFFFFF;
-    font-size: 12px;
-    margin-right: 59px;
-  }
+    flex-direction: column;
+}
