@@ -1,14 +1,44 @@
 ---
+import './index.css';
+import Header from '../components/Header.jsx';
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-import Button from '../components/Button';
-
-const pageTitle = "Home Page";
+const pageTitle = "home";
 ---
+
 <BaseLayout pageTitle={pageTitle}>
-	<h2>My awesome blog subtitle</h2>
-	<h1 class="text-3xl font-bold text-center mt-8">Welcome to Astro!</h1>
-	<div class="text-center mt-4">
-		<Button label="Click me" onClick={() => alert('Hello, Astro!')} />
-	</div>
+  <div class="container-home-parent">
+    <div class="container-home">
+      <div class="intro-home">
+        <span class="intro-title-home">Nous créons l’avenir</span>
+        <div class="intro-description-home">
+          <span class="text-zenkod-home">Zenkod</span>
+          <span>est une agence numérique à service complet spécialisée dans la conception de sites web.</span>
+        </div>
+        <div class="learn-more">
+          <span class="text-know-home">En savoir plus</span>
+        </div>
+      </div>
+      <span class="txt-agency-description-home">Notre agence mène de nombreux projets chaque année pour une variété de clients, incluant la création et la refonte de sites web. Pour vous donner un aperçu, voici une sélection de sites web et d'applications que nous avons réalisés.</span>
+      <div class="projects-home">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://i.imgur.com/1tMFzp8.png" alt="Project Image" />
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://i.imgur.com/1tMFzp8.png" alt="Project Image" />
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://i.imgur.com/1tMFzp8.png" alt="Project Image" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </BaseLayout>
+
+
+
