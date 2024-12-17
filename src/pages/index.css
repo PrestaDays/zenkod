@@ -55,17 +55,13 @@
   margin: 0 240px;
 }
 
-.agency-description {
-  color: #2A4747;
-  font-size: 16px;
-  margin: 0 23px 17px;
-}
-
-.projects {
+.projects-home {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 5px 14px;
+  margin-top: 3em;
+  margin-left: 10em;
+  margin-right: 10em;
 }
 
 .project-card {
@@ -92,4 +88,13 @@
   color: #FFFFFF;
   margin-top: -123px;
   margin: 0 17px;
+}
+
+.txt-agency-description-home{
+  font-size: 20px;
+  margin-left: 18em;
+  margin-right: 18em;
+  text-align: center;
+  color: #2A4747;
+  font-size: 19px;
 }
