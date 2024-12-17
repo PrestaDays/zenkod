@@ -1,10 +1,10 @@
-.container {
+.container-home-parent {
   display: flex;
   flex-direction: column;
   background: #FFFFFF;
 }
 
-.header {
+.container-home {
   height: 765px;
   display: flex;
   flex-direction: column;
