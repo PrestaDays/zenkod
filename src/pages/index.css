@@ -1,0 +1,118 @@
+.container-home-parent {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  min-height: 100vh;
+}
+
+.container-home {
+  flex: 1;
+  height: 765px;
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  padding-top: 5px;
+  margin-bottom: 6em;
+}
+
+.intro-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #F2E8CF;
+  padding: 72px 0;
+  margin-bottom: 16px;
+  gap: 2em;
+}
+
+.intro-title-home {
+  color: #2A4747;
+  font-size: 24px;
+  margin: 0 195px 14px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.intro-description-home {
+  font-size: 19px;
+  margin: 0 89px 12px;
+}
+
+.text-know-home{
+  color: white;
+  padding: 4px;
+}
+
+.text-zenkod-home{
+  color: #D57A66;
+}
+
+.learn-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #D57A66;
+  border-radius: 20px;
+  padding: 5px;
+  margin: 0 240px;
+}
+
+.projects-card-home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3em;
+  margin-left: 10em;
+  margin-right: 10em;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: #4A6670;
+  border-radius: 10px;
+  border: 5px solid #D57A66;
+  padding: 0 40px;
+  width: 20em;
+  color: white;
+  padding-bottom: 1em;
+  height: 25em;
+  align-items: center;
+
+}
+
+.project-card img {
+  /* height: 100px;
+  margin-top: 16px;
+  object-fit: fill; */
+  height: 50%;
+  width: 80%;
+}
+
+.project-description {
+  color: #FFFFFF;
+  margin-top: -123px;
+  margin: 0 17px;
+}
+
+.txt-agency-description-home{
+  font-size: 20px;
+  margin-left: 18em;
+  margin-right: 18em;
+  text-align: center;
+  color: #2A4747;
+  font-size: 19px;
+  margin-top: 2em;
+}
+
+.text-title-card-home{
+  color: white;
+  /* margin-top: 1em;   */
+  margin-right: auto;
+}
+
+.logo_alther{
+  /* height: 10px;
+  width: 60px; */
+}
