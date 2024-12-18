@@ -1,17 +1,26 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-import Button from '../components/Button';
+import TeamDisplay from '../components/TeamDisplay';
+import Counter from '../components/Counter';
 
 const pageTitle = "About Page";
 ---
 <BaseLayout pageTitle={pageTitle}>
-    <div class="flex min-h-screen relative overflow-hidden">
+    <div class="flex min-h-[94.1vh] relative overflow-hidden">
         <div class="w-full bg-[#FEF6F0] relative z-10 flex items-center">
-            <div class="flex h-full w-1/2 items-center justify-center">
-                <div class="max-w-md p-12">
-                    <h1 class="text-4xl font-bold">nice to meet you</h1>
-                    <p class="mt-4">We're John and Jo, co-founders of xelpmoc. Our journey started when...</p>
+            <div class="flex h-full w-full items-center justify-center">
+                <div class="w-full p-12">
+                    <h1 class="text-4xl font-bold">Mieux nous connaitre</h1>
+                    <p class="mt-4 leading-10">Il était une fois une agence pas comme les autres, une agence où la créativité et
+                        l’expertise digitale s’unissaient pour donner vie à des projets ambitieux. Cette agence s’appelait ZenKod.
+                        ZenKod est née d’une vision simple mais puissante : aider les entreprises à transformer leur présence en
+                        ligne en une véritable force. Avec passion et dévouement, nous accompagnons nos clients dans la
+                        refonte et la création de sites web sur-mesure, en leur offrant des plateformes modernes,
+                        performantes et adaptées à leurs besoins.</p>
+                    <p class="mt-4 leading-10">Notre équipe est composée de professionnels passionnés par le design et les nouvelles technologies. Chaque projet que nous entreprenons est une occasion de repousser les limites et d'apporter des solutions novatrices qui répondent aux défis spécifiques de nos clients. Nous croyons fermement que chaque entreprise mérite une présence en ligne unique qui reflète ses valeurs et son identité.</p>
+                    <p class="mt-4 leading-10">Avec ZenKod, chaque projet devient une aventure où nous mettons tout en œuvre pour assurer un développement digital à la hauteur des ambitions de nos partenaires. Que ce soit pour une petite entreprise ou une grande organisation, nous adaptons nos services pour répondre précisément aux besoins de chaque client, avec un suivi personnalisé et une transparence totale tout au long du processus.</p>
+                    <p class="mt-4 leading-10">Notre objectif est simple : vous aider à réussir dans un monde numérique en constante évolution. Nous sommes impatients de collaborer avec vous pour créer des solutions digitales qui ont un réel impact.</p>
                 </div>
             </div>
             <div class="w-1/2"></div>
@@ -48,10 +57,11 @@ const pageTitle = "About Page";
             </div>
         </div>
     </div>
-    <div class="bg-[#FEF6F0] py-12">
-        <div class="max-w-3xl mx-auto px-4">
-            <h2 class="text-3xl font-bold">Our story</h2>
-            <p class="mt-4">We're John and Jo, co-founders of xelpmoc. Our journey started when...</p>
-        </div>
+    <div class="flex justify-around items-center bg-white py-16">
+        <Counter client:only target={2024} label="Année de création" />
+        <Counter client:only target={32} label="Âge moyen des collaborateurs" />
+        <Counter client:only target={50} label="Parité hommes-femmes" />
+        <Counter client:only target={10} label="Sites réalisés" />
     </div>
+    <TeamDisplay />
 </BaseLayout>
