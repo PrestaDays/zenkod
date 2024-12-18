@@ -2,6 +2,11 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../styles/global.css';
+
+type BaseLayoutProps = {
+    pageTitle: string;
+};
+
 const props = Astro.props;
 ---
 <html lang="fr">
