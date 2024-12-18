@@ -81,6 +81,22 @@ const pageTitle = "Contact Page";
       </div>
     </form>
   </div>
+
+  <div
+    id="popup-overlay"
+    class="hidden fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md flex justify-center items-center z-50"
+  >
+    <div class="bg-white p-8 rounded-md shadow-md w-96">
+      <h2 id="popup-message" class="text-xl font-semibold text-center"></h2>
+      <div class="mt-4 text-center">
+        <button
+          id="popup-close"
+          class="bg-[#D57A66] text-white px-4 py-2 rounded">Fermer</button
+        >
+      </div>
+    </div>
+  </div>
+
   <script
     type="text/javascript"
     src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
@@ -89,7 +105,7 @@ const pageTitle = "Contact Page";
     (function () {
       emailjs.init("mK4gf-7vVImGgewy6");
     })();
-  
+
     window.onload = function () {
       document
         .getElementById("contact-form")
@@ -97,15 +113,31 @@ const pageTitle = "Contact Page";
           event.preventDefault();
           emailjs.sendForm("service_zspxt3n", "template_nuc5iss", this).then(
             () => {
-              alert("Message envoyé avec succès !");
-              window.location.href = "/";
+              showPopup("Message envoyé avec succès !");
             },
             (error) => {
-              alert("Échec de l'envoi. Veuillez réessayer.");
-              console.error("FAILED...", error);
+              showPopup("Échec de l'envoi. Veuillez réessayer.");
+              console.error("ERROR : ", error);
             }
           );
         });
+
+      function showPopup(message) {
+        document.getElementById("popup-message").textContent = message;
+        const popupOverlay = document.getElementById("popup-overlay");
+        popupOverlay.classList.remove("hidden");
+        popupOverlay.classList.add("show");
+
+        document
+          .getElementById("popup-close")
+          .addEventListener("click", function () {
+            Redirect();
+          });
+      }
+
+      function Redirect() {
+        window.location.href = "/";
+      }
     };
   </script>
 </BaseLayout>
