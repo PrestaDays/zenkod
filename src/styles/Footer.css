@@ -1,3 +1,9 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .footer {
     background: #2A4747;
     padding: 50px;
