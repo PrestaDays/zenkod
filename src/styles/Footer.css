@@ -1,0 +1,22 @@
+.footer {
+    background: #2A4747;
+    padding: 50px;
+    color: white;
+}
+
+.container-footer{
+    display: flex;
+    flex-direction: row;
+    gap: 10em;
+}
+
+h3{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+}
+
+.container-footer-content-one{
+    display: flex;
+    flex-direction: column;
+}
