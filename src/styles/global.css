@@ -6,8 +6,9 @@ html {
     scroll-behavior: smooth;
 }
 body {
+    color: #2A4747;
     background-color: white;
-    color: black;
+    font-size: 16px;
 }
 html.dark body {
     background-color: black;

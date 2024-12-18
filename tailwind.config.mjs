@@ -3,7 +3,14 @@ export default {
 	darkMode: 'class',
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
+			colors: {
+				primary: "#F2E8CF",
+				secondary: "#2A4747",
+				tertiary: "#4A6670",
+				accent: "#D57A66"
+			}
+		},
 	},
 	plugins: [
 		function ({ addComponents, theme }) {
