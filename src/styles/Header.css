@@ -37,3 +37,20 @@
     border-radius: 20px;
     padding: 5px 0;
 }
+
+.header {
+    transition: transform 0.3s ease-in-out;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+}
+
+.header.show {
+    transform: translateY(0);
+}
+
+.header.hide {
+    transform: translateY(-100%);
+}
