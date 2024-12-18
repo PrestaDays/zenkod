@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Button from "../components/FormButton";
+import FormButton from "../components/FormButton";
 
 const pageTitle = "Contact Page";
 ---
@@ -12,7 +12,7 @@ const pageTitle = "Contact Page";
       Vous souhaitez <span style="color: #D57A66;">
         réaliser votre site web
       </span> mais n’avez pas le temps de le coder de zéro ? <br />
-      Contactez-nous et nous ferons le site de vos rêves
+      Contactez-nous et nous ferons le site de vos rêves.
     </p>
   </div>
   <div class="my-16"></div>
@@ -20,9 +20,8 @@ const pageTitle = "Contact Page";
     <form
       id="contact-form"
       class="bg-[#4A6670] p-8 rounded-lg w-full max-w-4xl"
-      action="https://formspree.io/f/mdkordgk"
-      method="POST"
     >
+      <input type="hidden" name="contact_number" value="12345" />
       <div class="flex space-x-8 mb-4">
         <div class="w-1/2">
           <label class="text-white">Nom :</label>
@@ -31,6 +30,7 @@ const pageTitle = "Contact Page";
             name="nom"
             placeholder="Votre nom"
             class="w-full p-2 rounded mb-4"
+            required
           />
         </div>
         <div class="w-1/2">
@@ -40,6 +40,7 @@ const pageTitle = "Contact Page";
             name="prenom"
             placeholder="Votre prénom"
             class="w-full p-2 rounded mb-4"
+            required
           />
         </div>
       </div>
@@ -51,6 +52,7 @@ const pageTitle = "Contact Page";
             name="projet"
             placeholder="Nom de votre projet/entreprise"
             class="w-full p-2 rounded mb-4"
+            required
           />
         </div>
         <div class="w-1/2">
@@ -60,6 +62,7 @@ const pageTitle = "Contact Page";
             name="email"
             placeholder="Votre email"
             class="w-full p-2 rounded mb-4"
+            required
           />
         </div>
       </div>
@@ -70,11 +73,39 @@ const pageTitle = "Contact Page";
           cols="30"
           rows="10"
           placeholder="Votre message"
-          class="w-full p-2 rounded mb-4"></textarea>
+          class="w-full p-2 rounded mb-4"
+          required></textarea>
       </div>
       <div class="flex justify-center">
-        <Button label="Envoyer" />
+        <FormButton label="Envoyer" type="submit" />
       </div>
     </form>
   </div>
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+  ></script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init("mK4gf-7vVImGgewy6");
+    })();
+  
+    window.onload = function () {
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          emailjs.sendForm("service_zspxt3n", "template_nuc5iss", this).then(
+            () => {
+              alert("Message envoyé avec succès !");
+              window.location.href = "/";
+            },
+            (error) => {
+              alert("Échec de l'envoi. Veuillez réessayer.");
+              console.error("FAILED...", error);
+            }
+          );
+        });
+    };
+  </script>
 </BaseLayout>
