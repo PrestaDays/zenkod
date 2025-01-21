@@ -13,7 +13,7 @@ const ProjectCards = () => {
             description: "Raltech est une école de code en ligne avec laquelle nous avons collaboré pour la conception de leur site internet."
         },
         {
-            image: "/assets/logo_zenkod.png",
+            image: "/assets/logo_black.png",
             title: "Zenkod",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         }
