@@ -23,14 +23,29 @@ const Footer = () => {
                     {/* Company Info */}
                     <div className="space-y-4">
                         <h2 className="text-2xl font-bold text-white">Presta Days</h2>
-                        <div className="flex items-center space-x-2 transform transition-transform duration-300 hover:translate-x-2">
-                            <Mail size={16} />
-                            <a href="mailto:prestadays@gmail.com" className="hover:text-white">
-                                prestadays@gmail.com
-                            </a>
+                        <div className="space-y-2">
+                            <div className="flex items-center space-x-2 transform transition-transform duration-300 hover:translate-x-2">
+                                <Mail size={16} />
+                                <a href="mailto:prestadays@gmail.com" className="hover:text-white">
+                                    prestadays@gmail.com
+                                </a>
+                            </div>
+                            <div className="flex items-center space-x-2 transform transition-transform duration-300 hover:translate-x-2">
+                                <ChevronRight size={16} />
+                                <a href="/rgpd" className="hover:text-white">
+                                    RGPD
+                                </a>
+                            </div>
+                            <div className="flex items-center space-x-2 transform transition-transform duration-300 hover:translate-x-2">
+                                <ChevronRight size={16} />
+                                <a href="/mentions-legales" className="hover:text-white">
+                                    Mentions légales
+                                </a>
+                            </div>
                         </div>
                     </div>
 
+                    {/* Rest of the component stays the same */}
                     {/* Services */}
                     <div className="space-y-4">
                         <h3 className="text-lg font-semibold text-white">Services</h3>
