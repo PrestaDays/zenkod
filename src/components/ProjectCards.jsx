@@ -20,17 +20,31 @@ const ProjectCards = () => {
     ];
 
     return (
-        <div className="projects-card-home">
-            {projects.map((project, index) => (
-                <div
-                    key={index}
-                    className="project-card transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
-                >
-                    <img src={project.image} alt={project.title} className="logo_alther" />
-                    <h3 className="text-title-card-home">{project.title}</h3>
-                    <p>{project.description}</p>
-                </div>
-            ))}
+        <div className="w-full max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-12">
+                {projects.map((project, index) => (
+                    <div
+                        key={index}
+                        className="bg-[#FEF6F0] rounded-xl p-8 md:p-10 transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                    >
+                        <div className="flex flex-col items-center space-y-6">
+                            <div className="w-40 h-40 flex items-center justify-center p-4">
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className="w-full h-full object-contain"
+                                />
+                            </div>
+                            <h3 className="text-2xl font-bold text-center">
+                                {project.title}
+                            </h3>
+                            <p className="text-gray-700 text-center">
+                                {project.description}
+                            </p>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };

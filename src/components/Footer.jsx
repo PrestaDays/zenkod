@@ -26,8 +26,8 @@ const Footer = () => {
                         <div className="space-y-2">
                             <div className="flex items-center space-x-2 transform transition-transform duration-300 hover:translate-x-2">
                                 <Mail size={16} />
-                                <a href="mailto:prestadays@gmail.com" className="hover:text-white">
-                                    prestadays@gmail.com
+                                <a href="mailto:zenkod@gmail.com" className="hover:text-white">
+                                    zenkod@gmail.com
                                 </a>
                             </div>
                             <div className="flex items-center space-x-2 transform transition-transform duration-300 hover:translate-x-2">

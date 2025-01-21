@@ -14,7 +14,7 @@ export default {
 				'vesper-regular': ['vesper-regular'],
 			},
 			colors: {
-				primary: "#F2E8CF",
+				primary: "#FEF6F0",
 				secondary: "#2A4747",
 				tertiary: "#4A6670",
 				accent: "#D57A66"

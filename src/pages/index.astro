@@ -7,27 +7,39 @@ const pageTitle = "Home Page";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <div class="container-home-parent">
-    <div class="container-home">
-      <div class="intro-home">
-        <span class="intro-title-home">Nous créons l’avenir</span>
-        <div class="intro-description-home">
-          <span class="text-zenkod-home">Zenkod</span>
-          <span>est une agence numérique à service complet spécialisée dans la conception de sites web.</span>
-        </div>
-        <div class="w-40 learn-more transform transition-all duration-300 hover:scale-110 cursor-pointer">
-          <span class="text-know-home">
-              <a
-                  href="/about"
-                  class="link-know-home"
-              >
-                  En savoir plus
-              </a>
-          </span>
+  <main class="min-h-screen w-full">
+    <div class="flex flex-col items-center pb-12">
+      <div class="text-center space-y-8 mb-16 w-full mx-auto bg-primary p-8 rounded-lg">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
+          Nous créons l'avenir
+        </h1>
+
+        <div class="space-y-4 max-w-3xl mx-auto">
+          <div class="text-xl sm:text-2xl font-medium">
+            <span class="text-accent font-bold">ZenKod</span>
+            <span class="ml-2">est une agence numérique à service complet spécialisée dans la conception de sites web.</span>
+          </div>
+
+          <div class="flex justify-center">
+            <a
+                href="/about"
+                class="inline-block px-8 py-3 text-lg font-medium rounded-lg bg-tertiary text-white transform transition-all duration-300 hover:scale-110"
+            >
+              En savoir plus
+            </a>
+          </div>
         </div>
       </div>
-      <span class="txt-agency-description-home">Notre agence mène de nombreux projets chaque année pour une variété de clients, incluant la création et la refonte de sites web. Pour vous donner un aperçu, voici une sélection de sites web et d'applications que nous avons réalisés.</span>
-      <ProjectCards client:load />
+
+      <div class="w-3/4 sm:px-6 lg:px-8 space-y-12">
+        <p class="text-lg sm:text-xl text-center max-w-4xl mx-auto mb-10">
+          Notre agence mène de nombreux projets chaque année pour une variété de clients,
+          incluant la création et la refonte de sites web. Pour vous donner un aperçu,
+          voici une sélection de sites web et d'applications que nous avons réalisés.
+        </p>
+
+        <ProjectCards client:load />
+      </div>
     </div>
-  </div>
+  </main>
 </BaseLayout>

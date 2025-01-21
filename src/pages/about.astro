@@ -1,67 +1,65 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
 import TeamDisplay from '../components/TeamDisplay';
 import Counter from '../components/Counter';
 
 const pageTitle = "About Page";
 ---
 <BaseLayout pageTitle={pageTitle}>
-    <div class="flex min-h-[94.1vh] relative overflow-hidden">
-        <div class="w-full bg-[#FEF6F0] relative z-10 flex items-center">
-            <div class="flex h-full w-full items-center justify-center">
-                <div class="w-full p-12">
-                    <h1 class="text-4xl font-bold">Mieux nous connaitre</h1>
-                    <p class="mt-4 leading-10">Il était une fois une agence pas comme les autres, une agence où la créativité et
-                        l’expertise digitale s’unissaient pour donner vie à des projets ambitieux. Cette agence s’appelait ZenKod.
-                        ZenKod est née d’une vision simple mais puissante : aider les entreprises à transformer leur présence en
-                        ligne en une véritable force. Avec passion et dévouement, nous accompagnons nos clients dans la
-                        refonte et la création de sites web sur-mesure, en leur offrant des plateformes modernes,
-                        performantes et adaptées à leurs besoins.</p>
-                    <p class="mt-4 leading-10">Notre équipe est composée de professionnels passionnés par le design et les nouvelles technologies. Chaque projet que nous entreprenons est une occasion de repousser les limites et d'apporter des solutions novatrices qui répondent aux défis spécifiques de nos clients. Nous croyons fermement que chaque entreprise mérite une présence en ligne unique qui reflète ses valeurs et son identité.</p>
-                    <p class="mt-4 leading-10">Avec ZenKod, chaque projet devient une aventure où nous mettons tout en œuvre pour assurer un développement digital à la hauteur des ambitions de nos partenaires. Que ce soit pour une petite entreprise ou une grande organisation, nous adaptons nos services pour répondre précisément aux besoins de chaque client, avec un suivi personnalisé et une transparence totale tout au long du processus.</p>
-                    <p class="mt-4 leading-10">Notre objectif est simple : vous aider à réussir dans un monde numérique en constante évolution. Nous sommes impatients de collaborer avec vous pour créer des solutions digitales qui ont un réel impact.</p>
+    <div class="relative min-h-[94.1vh] bg-[#FEF6F0]">
+        <div class="container mx-auto px-4 lg:px-8 py-12 lg:py-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                {/* Contenu texte */}
+                <div class="space-y-6 order-2 lg:order-1">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold">
+                        Mieux nous connaitre
+                    </h1>
+                    <div class="space-y-6 text-base md:text-lg">
+                        <p class="leading-relaxed">
+                            Il était une fois une agence pas comme les autres, une agence où la créativité et
+                            l'expertise digitale s'unissaient pour donner vie à des projets ambitieux. Cette agence s'appelait ZenKod.
+                        </p>
+                        <p class="leading-relaxed">
+                            ZenKod est née d'une vision simple mais puissante : aider les entreprises à transformer leur présence en
+                            ligne en une véritable force. Avec passion et dévouement, nous accompagnons nos clients dans la
+                            refonte et la création de sites web sur-mesure, en leur offrant des plateformes modernes,
+                            performantes et adaptées à leurs besoins.
+                        </p>
+                        <p class="leading-relaxed">
+                            Notre équipe est composée de professionnels passionnés par le design et les nouvelles technologies.
+                            Chaque projet que nous entreprenons est une occasion de repousser les limites et d'apporter des solutions
+                            novatrices qui répondent aux défis spécifiques de nos clients.
+                        </p>
+                        <p class="leading-relaxed">
+                            Avec ZenKod, chaque projet devient une aventure où nous mettons tout en œuvre pour assurer un développement
+                            digital à la hauteur des ambitions de nos partenaires.
+                        </p>
+                    </div>
+                </div>
+
+                {/* Image */}
+                <div class="relative order-1 lg:order-2 h-full">
+                    <div class="w-full h-auto rounded-3xl overflow-hidden">
+                        <img
+                                src="/images/Photo_de_groupe.jpg"
+                                alt="À propos de ZenKod"
+                                class="w-full h-full object-contain transform hover:scale-105 transition-transform duration-700"
+                        />
+                    </div>
                 </div>
             </div>
-            <div class="w-1/2"></div>
         </div>
 
-        <div class="absolute right:0 top-0 z-20 w-1/2 h-full translate-x-full">
-            <div class="w-full h-full">
-                <svg
-                        viewBox="0 0 100 100"
-                        preserveAspectRatio="xMidYMid slice"
-                        class="w-full h-full"
-                >
-                    <defs>
-                        <clipPath id="wave-mask">
-                            <path
-                                    d="M35,0
-                       C25,20 45,40 35,60
-                       C25,80 45,100 35,100
-                       L100,100
-                       L100,0 Z"
-                            />
-                        </clipPath>
-                    </defs>
-                    <g transform="translate(0, 0)">
-                        <image
-                                href="/images/about.jpg"
-                                width="100%"
-                                height="100%"
-                                clip-path="url(#wave-mask)"
-                                preserveAspectRatio="xMidYMid slice"
-                        />
-                    </g>
-                </svg>
+        {/* Section Compteurs */}
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 py-12">
+                <Counter client:only target={2024} label="Année de création" />
+                <Counter client:only target={32} label="Âge moyen des collaborateurs" />
+                <Counter client:only target={50} label="Parité hommes-femmes" />
+                <Counter client:only target={10} label="Sites réalisés" />
             </div>
         </div>
     </div>
-    <div class="flex justify-around items-center bg-white py-16">
-        <Counter client:only target={2024} label="Année de création" />
-        <Counter client:only target={32} label="Âge moyen des collaborateurs" />
-        <Counter client:only target={50} label="Parité hommes-femmes" />
-        <Counter client:only target={10} label="Sites réalisés" />
-    </div>
+
     <TeamDisplay />
 </BaseLayout>
