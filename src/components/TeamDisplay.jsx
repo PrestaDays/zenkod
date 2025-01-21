@@ -9,7 +9,7 @@ const TeamDisplay = () => {
             image: "/images/profiles/photoanthony.jpg"
         },
         {
-            nom: "Garcia",
+            nom: "Gomez",
             prenom: "Tatiana",
             role: "Co-Dirigeante",
             image: "/images/profiles/phototatiana.jpg"
