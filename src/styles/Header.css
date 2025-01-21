@@ -5,10 +5,11 @@
 }
 
 .logo {
-    width: 70px;
-    height: 58px;
+    width: 150px;
+    height: 40px;
     object-fit: fill;
     margin-left: 3em;
+    margin-top: 0.5em;
 }
 
 .container-content-nav{
