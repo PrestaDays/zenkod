@@ -3,17 +3,17 @@ import React from 'react';
 const ProjectCards = () => {
     const projects = [
         {
-            image: "src/assets/logo_althers.png",
+            image: "/assets/logo_althers.png",
             title: "iWorkout",
             description: "iWorkout est une application mobile propulsée par IA qui fourni un plan de musculation en fonction des objectifs définis par l'utilisateur."
         },
         {
-            image: "src/assets/logo_raltech.png",
+            image: "/assets/logo_raltech.png",
             title: "Raltech",
             description: "Raltech est une école de code en ligne avec laquelle nous avons collaboré pour la conception de leur site internet."
         },
         {
-            image: "src/assets/logo_zenkod.png",
+            image: "/assets/logo_zenkod.png",
             title: "Zenkod",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         }

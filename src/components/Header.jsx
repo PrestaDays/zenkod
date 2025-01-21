@@ -26,7 +26,7 @@ const Header = () => {
         <header className={`header ${isScrolled ? 'show' : 'hide'}`}>
             <div className="nav">
                 <a href="/" className="logo-link">
-                    <img src="src/assets/logo.jpg" alt="Logo" className="logo" />
+                    <img src="/assets/logo.png" alt="Logo" className="logo" />
                 </a>
                 <div className="container-content-nav">
                     <span className="nav-item"><a href="/services">Services</a></span>
