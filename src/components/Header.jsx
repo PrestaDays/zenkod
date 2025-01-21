@@ -64,7 +64,7 @@ const Header = () => {
                         !shouldShowHeader && isAboutPage ? 'opacity-0' : 'opacity-100'
                     }`}>
                         <img
-                            src="/assets/logo.png"
+                            src="/assets/logo_line.png"
                             alt="Logo"
                             className="h-12 w-auto"
                         />
