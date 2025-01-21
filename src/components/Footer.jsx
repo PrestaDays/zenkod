@@ -12,7 +12,7 @@ const Footer = () => {
     const services = ['Développement Web', 'Design UI/UX', 'Mobile Apps', 'Consulting'];
     const companyPages = [
         { label: 'À propos', path: '/about' },
-        { label: 'Carrières', path: '/careers' },
+        { label: 'Services', path: '/services' },
         { label: 'Contact', path: '/contact' }
     ];
 
