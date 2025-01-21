@@ -1,7 +1,7 @@
 ---
 import '../styles/index.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Button from '../components/Button';
+import ProjectCards from '../components/ProjectCards';
 
 const pageTitle = "Home Page";
 ---
@@ -15,28 +15,19 @@ const pageTitle = "Home Page";
           <span class="text-zenkod-home">Zenkod</span>
           <span>est une agence numérique à service complet spécialisée dans la conception de sites web.</span>
         </div>
-        <div class="learn-more">
-          <span class="text-know-home"><a href="/about" class="link-know-home">En savoir plus</a></span>
+        <div class="w-40 learn-more transform transition-all duration-300 hover:scale-110 cursor-pointer">
+          <span class="text-know-home">
+              <a
+                  href="/about"
+                  class="link-know-home"
+              >
+                  En savoir plus
+              </a>
+          </span>
         </div>
       </div>
       <span class="txt-agency-description-home">Notre agence mène de nombreux projets chaque année pour une variété de clients, incluant la création et la refonte de sites web. Pour vous donner un aperçu, voici une sélection de sites web et d'applications que nous avons réalisés.</span>
-      <div class="projects-card-home">
-        <div class="project-card">
-          <img src="src/assets/logo_althers.png" class="logo_alther" alt="Project Image" />
-          <h3 class="text-title-card-home">iWorkout</h3>
-          <p>iWorkout est une application mobile propulsée par IA qui fourni un plan de musculation en fonction des objectifs définis par l’utilisateur.</p>
-        </div>
-        <div class="project-card">
-          <img src="src/assets/logo_raltech.png" alt="Project Image" />
-          <h3 class="text-title-card-home">Raltech</h3>
-          <p>Raltech est une école de code en ligne avec laquelle nous avons collaboré pour la conception de leur site internet.</p>
-        </div>
-        <div class="project-card">
-          <img src="src/assets/logo_zenkod.png" alt="Project Image" />
-          <h3 class="text-title-card-home">Zenkod</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-      </div>
+      <ProjectCards client:load />
     </div>
   </div>
 </BaseLayout>
