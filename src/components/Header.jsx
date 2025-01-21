@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
-    const isAboutPage = window.location.pathname === '/about' || window.location.pathname === '/services';
+    const isAboutPage = window.location.pathname === '/about' || window.location.pathname === '/services' || window.location.pathname === '/contact' || window.location.pathname === '/';
 
     useEffect(() => {
         const handleScroll = () => {
