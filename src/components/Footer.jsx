@@ -22,7 +22,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
                     {/* Company Info */}
                     <div className="space-y-4">
-                        <h2 className="text-2xl font-bold text-white">Presta Days</h2>
+                        <h2 className="text-2xl font-bold text-white">Zenkod</h2>
                         <div className="space-y-2">
                             <div className="flex items-center space-x-2 transform transition-transform duration-300 hover:translate-x-2">
                                 <Mail size={16} />
@@ -109,7 +109,7 @@ const Footer = () => {
                 {/* Copyright */}
                 <div className="mt-12 pt-8 border-t border-gray-800 text-center">
                     <p className="text-sm">
-                        © {new Date().getFullYear()} Presta Days. Tous droits réservés.
+                        © {new Date().getFullYear()} Zenkod. Tous droits réservés.
                     </p>
                 </div>
             </div>
