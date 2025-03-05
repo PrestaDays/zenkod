@@ -8,4 +8,12 @@ const getUserById = async (id) => {
     return await userModel.getUserById(id);
 };
 
-module.exports = { getUsers, getUserById };
+const updateUser = async (id, userData) => {
+    return await userModel.updateUser(id, userData);
+};
+
+const deleteUser = async (id) => {
+    return await userModel.deleteUser(id);
+};
+
+module.exports = { getUsers, getUserById, updateUser, deleteUser };
