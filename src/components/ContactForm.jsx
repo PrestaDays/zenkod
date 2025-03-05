@@ -8,7 +8,7 @@ const ContactForm = () => {
         email: '',
         message: ''
     });
-
+    
     const [isLoading, setIsLoading] = useState(false);
     const [status, setStatus] = useState({ type: '', message: '' });
 
@@ -27,7 +27,7 @@ const ContactForm = () => {
         setStatus({ type: '', message: '' });
 
         try {
-            const response = await fetch('http://localhost:3001/api/send-email', {
+            const response = await fetch(`${import.meta.env.PUBLIC_API_URL}/api/send-email`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
