@@ -11,9 +11,13 @@ const __dirname = dirname(__filename);
 dotenv.config();
 
 const app = express();
-const port = 3001;
+const port = 3000;
 
-app.use(cors());
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
 app.post('/api/send-email', async (req, res) => {
