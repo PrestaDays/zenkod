@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "80:4321"
+    depends_on:
+      - backend
+    environment:
+      - BACKEND_URL=${PUBLIC_API_URL}
+      - HOST=0.0.0.0
+      - PORT=4321
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=development
