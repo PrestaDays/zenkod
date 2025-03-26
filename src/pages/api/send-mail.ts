@@ -1,44 +1,40 @@
-import nodemailer from 'nodemailer';
+import type { APIRoute } from 'astro';
 
-export const POST = async ({ request } : any) => {
+interface ContactFormData {
+    nom: string;
+    prenom: string;
+    email: string;
+    projet: string;
+    message: string;
+}
+
+export const POST: APIRoute = async ({ request }) => {
     try {
-        const data = await request.json();
+        const data = await request.json() as ContactFormData;
 
         console.log('Données reçues:', data);
 
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: import.meta.env.EMAIL_USER,
-                pass: import.meta.env.EMAIL_PASS
-            }
+        const lambdaUrl = import.meta.env.LAMBDA_API_URL;
+
+        if (!lambdaUrl) {
+            throw new Error('L\'URL de l\'API Lambda n\'est pas définie');
+        }
+
+        const response = await fetch(lambdaUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
         });
 
-        console.log('Transporteur créé');
+        const result = await response.json();
 
-        const mailOptions = {
-            from: `"${data.nom} ${data.prenom}" <${data.email}>`,
-            to: import.meta.env.EMAIL_USER,
-            subject: `Nouveau message de contact - ${data.projet}`,
-            html: `
-        <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
-          <h2 style="color: #D57A66;">Nouveau message de contact</h2>
-          <p><strong>Nom:</strong> ${data.nom}</p>
-          <p><strong>Prénom:</strong> ${data.prenom}</p>
-          <p><strong>Email:</strong> ${data.email}</p>
-          <p><strong>Projet:</strong> ${data.projet}</p>
-          <h3>Message:</h3>
-          <p style="white-space: pre-line;">${data.message}</p>
-        </div>
-      `
-        };
+        if (!response.ok) {
+            throw new Error(result.message || 'Erreur lors de l\'envoi via Lambda');
+        }
 
-        // Log pour debug
-        console.log('Tentative d\'envoi...');
-
-        const info = await transporter.sendMail(mailOptions);
-
-        console.log('Email envoyé:', info.response);
+        console.log('Email envoyé via Lambda:', result);
 
         return new Response(
             JSON.stringify({
@@ -53,11 +49,11 @@ export const POST = async ({ request } : any) => {
         );
 
     } catch (error) {
-        console.error('Erreur complète:', error);
+        console.error('Erreur complète:', error instanceof Error ? error.message : String(error));
         return new Response(
             JSON.stringify({
                 message: 'Erreur lors de l\'envoi de l\'email',
-                error: error.message
+                error: error instanceof Error ? error.message : 'Erreur inconnue'
             }),
             {
                 status: 500,
