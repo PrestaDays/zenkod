@@ -1,47 +1,26 @@
-const userService = require("../services/userService");
+const { User } = require("../models");
 
-exports.getUsers = async (req, res) => {
-    try {
-        const users = await userService.getUsers();
-        res.json(users);
-    } catch (error) {
-        res.status(500).json({ message: "Erreur serveur", error: error.message });
-    }
+exports.getAllUsers = async (req, res) => {
+    const users = await User.findAll();
+    res.json(users);
 };
 
 exports.getUserById = async (req, res) => {
-    try {
-        const user = await userService.getUserById(req.params.id);
-        if (!user) return res.status(404).json({ message: "Utilisateur non trouvé" });
-        res.json(user);
-    } catch (error) {
-        res.status(500).json({ message: "Erreur serveur", error: error.message });
-    }
+    const user = await User.findByPk(req.params.id);
+    res.json(user);
+};
+
+exports.createUser = async (req, res) => {
+    const user = await User.create(req.body);
+    res.status(201).json(user);
 };
 
 exports.updateUser = async (req, res) => {
-    try {
-        const user = await userService.updateUser(req.params.id, req.body);
-        if (!user) return res.status(404).json({ message: "Utilisateur non trouvé" });
-        res.json(user);
-    } catch (error) {
-        res.status(500).json({ message: "Erreur serveur", error: error.message });
-    }
+    await User.update(req.body, { where: { id: req.params.id } });
+    res.json({ message: "Utilisateur mis à jour" });
 };
 
 exports.deleteUser = async (req, res) => {
-    try {
-        const user = await userService.deleteUser(req.params.id);
-        if (!user) return res.status(404).json({ message: "Utilisateur non trouvé" });
-        res.json({ message: "Utilisateur supprimé avec succès" });
-    } catch (error) {
-        res.status(500).json({ message: "Erreur serveur", error: error.message });
-    }
+    await User.destroy({ where: { id: req.params.id } });
+    res.json({ message: "Utilisateur supprimé" });
 };
-
-
-
-
-
-
-
