@@ -22,47 +22,58 @@ app.use(express.json());
 
 app.post('/api/send-email', async (req, res) => {
     try {
-        const { nom, prenom, email, projet, message } = req.body;
+        const data = req.body;
 
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS
+        console.log('Données reçues:', data);
+
+        const lambdaUrl = process.env.LAMBDA_API_URL;
+
+        if (!lambdaUrl) {
+            throw new Error('L\'URL de l\'API Lambda n\'est pas définie');
+        }
+
+        const response = await fetch(lambdaUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.message || 'Erreur lors de l\'envoi via Lambda');
+        }
+
+        console.log('Email envoyé via Lambda:', result);
+
+        return new Response(
+            JSON.stringify({
+                message: 'Email envoyé avec succès'
+            }),
+            {
+                status: 200,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             }
-        });
-
-        const mailOptions = {
-            from: `"${nom} ${prenom}" <${email}>`,
-            to: process.env.EMAIL_USER,
-            subject: `Nouveau message de contact - ${projet}`,
-            html: `
-                <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
-                    <h2 style="color: #D57A66;">Nouveau message de contact</h2>
-                    <p><strong>Nom:</strong> ${nom}</p>
-                    <p><strong>Prénom:</strong> ${prenom}</p>
-                    <p><strong>Email:</strong> ${email}</p>
-                    <p><strong>Projet:</strong> ${projet}</p>
-                    <h3>Message:</h3>
-                    <p style="white-space: pre-line;">${message}</p>
-                </div>
-            `
-        };
-
-        await transporter.sendMail(mailOptions);
-
-        res.status(200).json({
-            success: true,
-            message: 'Email envoyé avec succès'
-        });
+        );
 
     } catch (error) {
-        console.error('Erreur lors de l\'envoi:', error);
-        res.status(500).json({
-            success: false,
-            message: 'Erreur lors de l\'envoi de l\'email',
-            error: error.message
-        });
+        console.error('Erreur complète:', error instanceof Error ? error.message : String(error));
+        return new Response(
+            JSON.stringify({
+                message: 'Erreur lors de l\'envoi de l\'email',
+                error: error instanceof Error ? error.message : 'Erreur inconnue'
+            }),
+            {
+                status: 500,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        );
     }
 });
 
