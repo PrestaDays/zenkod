@@ -48,32 +48,15 @@ app.post('/api/send-email', async (req, res) => {
 
         console.log('Email envoyé via Lambda:', result);
 
-        return new Response(
-            JSON.stringify({
-                message: 'Email envoyé avec succès'
-            }),
-            {
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }
-        );
+        return res.status(200).json({
+            message: 'Email envoyé avec succès'
+        });
 
     } catch (error) {
-        console.error('Erreur complète:', error instanceof Error ? error.message : String(error));
-        return new Response(
-            JSON.stringify({
-                message: 'Erreur lors de l\'envoi de l\'email',
-                error: error instanceof Error ? error.message : 'Erreur inconnue'
-            }),
-            {
-                status: 500,
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }
-        );
+        return res.status(500).json({
+            message: 'Erreur lors de l\'envoi de l\'email',
+            error: error instanceof Error ? error.message : 'Erreur inconnue'
+        });
     }
 });
 
