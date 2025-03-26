@@ -15,6 +15,7 @@ export default defineConfig({
     host: true
   },
   vite: {
+    envPrefix: ['PUBLIC_'],
     ssr: {
       noExternal: ['nodemailer']
     }
