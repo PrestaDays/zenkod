@@ -32,12 +32,13 @@ jobs:
           file: ./Dockerfile.backend
           push: true
           tags: lucesf/zenkod-backend:latest
-                  - name: Deploy to EC2
-                  uses: appleboy/ssh-action@master
-                  with:
-                    host: ${{ secrets.EC2_HOST }}
-                    username: ${{ secrets.EC2_USERNAME }}
-                    key: ${{ secrets.EC2_SSH_KEY }}
-                    script: |
-                      cd zenkod
-                      ./deploy.sh
+
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd zenkod
+            ./deploy.sh
