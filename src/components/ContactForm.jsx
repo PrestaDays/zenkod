@@ -27,7 +27,7 @@ const ContactForm = () => {
         setStatus({ type: '', message: '' });
 
         try {
-            const response = await fetch(import.meta.env.PUBLIC_API_URL + '/api/send-email', {
+            const response = await fetch('/api/send-email', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
