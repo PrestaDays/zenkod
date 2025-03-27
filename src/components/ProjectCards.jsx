@@ -5,17 +5,20 @@ const ProjectCards = () => {
         {
             image: "/assets/logo_althers.png",
             title: "iWorkout",
-            description: "iWorkout est une application mobile propulsée par IA qui fourni un plan de musculation en fonction des objectifs définis par l'utilisateur."
+            description: "iWorkout est une application mobile propulsée par IA qui fourni un plan de musculation en fonction des objectifs définis par l'utilisateur.",
+            link: ""
         },
         {
             image: "/assets/logo_raltech.png",
             title: "Raltech",
-            description: "Raltech est une école de code en ligne avec laquelle nous avons collaboré pour la conception de leur site internet."
+            description: "Raltech est une école de code en ligne avec laquelle nous avons collaboré pour la conception de leur site internet.",
+            link: "https://raltech.school/"
         },
         {
             image: "/assets/logo_black.png",
             title: "Zenkod",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            link: ""
         }
     ];
 
@@ -41,6 +44,14 @@ const ProjectCards = () => {
                             <p className="text-gray-700 text-center">
                                 {project.description}
                             </p>
+                            {project.link && (
+                                <a
+                                    href={project.link}
+                                    className="bg-accent text-white px-6 py-2 rounded-lg hover:bg-accent/90 transition-colors duration-200"
+                                >
+                                    Voir le projet
+                                </a>
+                            )}
                         </div>
                     </div>
                 ))}
