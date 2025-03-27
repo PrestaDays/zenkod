@@ -17,7 +17,7 @@ const ProjectCards = () => {
         {
             image: "/assets/logo_black.png",
             title: "Zenkod",
-            description: "Zenkod est une plateforme de prestation de services informatiques qui propose des solutions sur mesure pour les entreprises.",
+            description: "Zenkod est une plateforme de prestation de services informatiques qui propose des solutions sur mesure pour les entreprises de toutes tailles.",
             link: ""
         }
     ];
