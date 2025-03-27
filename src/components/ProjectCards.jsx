@@ -17,7 +17,7 @@ const ProjectCards = () => {
         {
             image: "/assets/logo_black.png",
             title: "Zenkod",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            description: "Zenkod est une plateforme de cours en ligne qui propose des formations en développement web et mobile.",
             link: ""
         }
     ];
