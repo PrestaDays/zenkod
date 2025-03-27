@@ -2,9 +2,6 @@ version: '3.8'
 
 services:
   frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile.frontend
     ports:
       - "8080:4321"
     depends_on:
@@ -13,11 +10,11 @@ services:
       - BACKEND_URL=${PUBLIC_API_URL}
       - HOST=0.0.0.0
       - PORT=${PORT_FRONTEND}
+    image: lucesf/zenkod-frontend:latest
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
 
   backend:
-    build:
-      context: .
-      dockerfile: Dockerfile.backend
     ports:
       - "3000:3000"
     environment:
@@ -27,3 +24,14 @@ services:
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
       - LAMBDA_API_URL=${LAMBDA_API_URL}
+    image: lucesf/zenkod-backend:latest
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 30 --cleanup
+    environment:
+      - WATCHTOWER_LABEL_ENABLE=true
