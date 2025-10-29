@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import TeamDisplay from '../components/TeamDisplay';
-import Counter from '../components/Counter';
+import TeamDisplay from '../components/TeamDisplay.astro';
+import Counter from '../components/Counter.astro';
 
 const pageTitle = "About Page";
 ---
@@ -53,10 +53,10 @@ const pageTitle = "About Page";
         {/* Section Compteurs */}
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 py-12">
-                <Counter client:only target={2024} label="Année de création" />
-                <Counter client:only target={32} label="Âge moyen des collaborateurs" />
-                <Counter client:only target={50} label="Parité hommes-femmes" />
-                <Counter client:only target={10} label="Sites réalisés" />
+                <Counter target={2024} label="Année de création" />
+                <Counter target={32} label="Âge moyen des collaborateurs" />
+                <Counter target={50} label="Parité hommes-femmes" />
+                <Counter target={10} label="Sites réalisés" />
             </div>
         </div>
     </div>

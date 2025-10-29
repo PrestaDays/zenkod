@@ -1,7 +1,7 @@
 ---
 import '../styles/index.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ProjectCards from '../components/ProjectCards';
+import ProjectCards from '../components/ProjectCards.astro';
 
 const pageTitle = "Home Page";
 ---
@@ -38,7 +38,7 @@ const pageTitle = "Home Page";
           voici une sélection de sites web et d'applications que nous avons réalisés.
         </p>
 
-        <ProjectCards client:load />
+        <ProjectCards />
       </div>
     </div>
   </main>

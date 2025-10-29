@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ContactForm from "../components/ContactForm";
+import ContactForm from "../components/ContactForm.astro";
 
 const pageTitle = "Contact Page";
 ---
@@ -18,7 +18,7 @@ const pageTitle = "Contact Page";
     <div class="my-4 md:my-8"></div>
 
     <div class="flex justify-center items-center px-4 md:px-6">
-        <ContactForm client:load />
+        <ContactForm />
     </div>
 </BaseLayout>
 
