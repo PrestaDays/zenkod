@@ -3,13 +3,13 @@ version: '3.8'
 services:
   frontend:
     ports:
-      - "8080:4321"
+      - "8080:3000"
     depends_on:
       - backend
     environment:
       - BACKEND_URL=${PUBLIC_API_URL}
       - HOST=0.0.0.0
-      - PORT=${PORT_FRONTEND}
+      - PORT=3000
     image: lucesf/zenkod-frontend:latest
     labels:
       - "com.centurylinklabs.watchtower.enable=true"

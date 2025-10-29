@@ -1,0 +1,74 @@
+---
+// Composant pour la page 404
+---
+
+<style>
+    @keyframes slideDown {
+        from {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .animate-slide-down {
+        animation: slideDown 0.5s ease-out forwards;
+        opacity: 0;
+    }
+
+    .animate-slide-up {
+        animation: slideUp 0.5s ease-out forwards;
+        opacity: 0;
+    }
+
+    .delay-200 {
+        animation-delay: 0.2s;
+    }
+
+    .delay-400 {
+        animation-delay: 0.4s;
+    }
+
+    .delay-600 {
+        animation-delay: 0.6s;
+    }
+
+    .hover-scale {
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .hover-scale:hover {
+        transform: scale(1.05);
+    }
+</style>
+
+<div class="relative z-10 text-center px-4 sm:px-8">
+    <h1 class="text-5xl sm:text-6xl md:text-8xl font-bold text-gray-800 mb-4 animate-slide-down delay-200">
+        404
+    </h1>
+
+    <p class="text-xl sm:text-2xl text-gray-600 mb-8 animate-slide-up delay-400">
+        Oops! Page not found.
+    </p>
+
+    <a
+        href="/"
+        class="inline-block bg-[#D57A66] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#c56e5b] transition-colors duration-300 animate-slide-up delay-600 hover-scale"
+    >
+        Retour à l'accueil
+    </a>
+</div>

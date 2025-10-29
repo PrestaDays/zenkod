@@ -1,0 +1,103 @@
+---
+import { Image } from 'astro:assets';
+
+const teamMembers = [
+    {
+        nom: "Cavagne",
+        prenom: "Anthony",
+        role: "Fondateur",
+        image: "/images/profiles/photoanthony.jpg"
+    },
+    {
+        nom: "Gomez",
+        prenom: "Tatiana",
+        role: "Co-Dirigeante",
+        image: "/images/profiles/phototatiana.jpg"
+    },
+    {
+        nom: "Escaffre",
+        prenom: "Lucas",
+        role: "Project Lead",
+        image: "/images/profiles/photolucas.jpg"
+    },
+    {
+        nom: "Barrabé",
+        prenom: "Sarah",
+        role: "Développeuse",
+        image: "/images/profiles/photosarah.jpg"
+    },
+    {
+        nom: "Manevit",
+        prenom: "Théo",
+        role: "Intégrateur web",
+        image: "/images/profiles/phototheo.jpg"
+    },
+    {
+        nom: "Bertrand",
+        prenom: "Guillaume",
+        role: "Architecte logiciel",
+        image: "/images/profiles/photoguillaume.jpg"
+    },
+    {
+        nom: "Mbanzulu",
+        prenom: "Myriam",
+        role: "Stratégie communication",
+        image: "/images/profiles/photomyriam.jpg"
+    },
+    {
+        nom: "Provo",
+        prenom: "Alexis",
+        role: "Développeur",
+        image: "/images/profiles/photoalexis.jpg"
+    },
+    {
+        nom: "Adopre-Doh",
+        prenom: "Rodolphe",
+        role: "Développeur",
+        image: "/images/profiles/photorodolphe.jpg"
+    },
+    {
+        nom: "Atwe",
+        prenom: "Rawan",
+        role: "Community Manager",
+        image: "/images/profiles/photorawan.jpg"
+    },
+    {
+        nom: "Quashie",
+        prenom: "Douglas",
+        role: "Développeur",
+        image: "/images/profiles/photodougi.jpg"
+    }
+];
+---
+
+<div class="py-12">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8">Notre équipe de choc </h2>
+        <div class="flex flex-wrap gap-6 justify-center">
+            {teamMembers.map((member) => (
+                <div
+                    class="bg-[#FEF6F0] p-4 rounded-lg w-96 transform transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
+                >
+                    <div class="flex items-center">
+                        <div class="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+                            <img
+                                src={member.image}
+                                alt={`${member.prenom} ${member.nom}`}
+                                width="64"
+                                height="64"
+                                loading="lazy"
+                                decoding="async"
+                                class="w-full h-full object-cover"
+                            />
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="font-bold">{member.prenom} {member.nom}</h3>
+                            <p>{member.role}</p>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</div>

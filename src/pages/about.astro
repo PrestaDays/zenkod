@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import TeamDisplay from '../components/TeamDisplay';
-import Counter from '../components/Counter';
+import TeamDisplay from '../components/TeamDisplay.astro';
+import Counter from '../components/Counter.astro';
 
 const pageTitle = "About Page";
 ---
@@ -9,7 +9,6 @@ const pageTitle = "About Page";
     <div class="relative min-h-[94.1vh] bg-[#FEF6F0]">
         <div class="container mx-auto px-4 lg:px-8 py-12 lg:py-20">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                {/* Contenu texte */}
                 <div class="space-y-6 order-2 lg:order-1">
                     <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold">
                         Mieux nous connaitre
@@ -37,12 +36,15 @@ const pageTitle = "About Page";
                     </div>
                 </div>
 
-                {/* Image */}
                 <div class="relative order-1 lg:order-2 h-full">
                     <div class="w-full h-auto rounded-3xl overflow-hidden">
                         <img
                                 src="/images/Photo_de_groupe.jpg"
                                 alt="À propos de ZenKod"
+                                width="800"
+                                height="765"
+                                fetchpriority="high"
+                                decoding="async"
                                 class="w-full h-full object-contain transform hover:scale-105 transition-transform duration-700"
                         />
                     </div>
@@ -50,13 +52,12 @@ const pageTitle = "About Page";
             </div>
         </div>
 
-        {/* Section Compteurs */}
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 py-12">
-                <Counter client:only target={2024} label="Année de création" />
-                <Counter client:only target={32} label="Âge moyen des collaborateurs" />
-                <Counter client:only target={50} label="Parité hommes-femmes" />
-                <Counter client:only target={10} label="Sites réalisés" />
+                <Counter target={2024} label="Année de création" />
+                <Counter target={32} label="Âge moyen des collaborateurs" />
+                <Counter target={50} label="Parité hommes-femmes" />
+                <Counter target={10} label="Sites réalisés" />
             </div>
         </div>
     </div>

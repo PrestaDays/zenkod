@@ -1,0 +1,113 @@
+---
+import { Twitter, Linkedin, Instagram, Github, Mail, ChevronRight } from 'lucide-astro';
+
+const socialLinks = [
+    { icon: Twitter, label: 'Twitter', href: '#' },
+    { icon: Linkedin, label: 'LinkedIn', href: '#' },
+    { icon: Instagram, label: 'Instagram', href: '#' },
+    { icon: Github, label: 'GitHub', href: '#' }
+];
+
+const services = ['Développement Web', 'Design UI/UX', 'Mobile Apps', 'Consulting'];
+const companyPages = [
+    { label: 'À propos', path: '/about' },
+    { label: 'Services', path: '/services' },
+    { label: 'Contact', path: '/contact' }
+];
+---
+
+<footer class="bg-gray-900 text-gray-300 py-12">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+            <!-- Company Info -->
+            <div class="space-y-4">
+                <h2 class="text-2xl font-bold text-white">Zenkod</h2>
+                <div class="space-y-2">
+                    <div class="flex items-center space-x-2 transform transition-transform duration-300 hover:translate-x-2">
+                        <Mail size={16} />
+                        <a href="mailto:zenkod@gmail.com" class="hover:text-white">
+                            zenkod@gmail.com
+                        </a>
+                    </div>
+                    <div class="flex items-center space-x-2 transform transition-transform duration-300 hover:translate-x-2">
+                        <ChevronRight size={16} />
+                        <a href="/rgpd" class="hover:text-white">
+                            RGPD
+                        </a>
+                    </div>
+                    <div class="flex items-center space-x-2 transform transition-transform duration-300 hover:translate-x-2">
+                        <ChevronRight size={16} />
+                        <a href="/mentions-legales" class="hover:text-white">
+                            Mentions légales
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services -->
+            <div class="space-y-4">
+                <h3 class="text-lg font-semibold text-white">Services</h3>
+                <ul class="space-y-2">
+                    {services.map((service) => (
+                        <li class="flex items-center group cursor-pointer">
+                            <ChevronRight
+                                size={16}
+                                class="transform transition-transform duration-300 group-hover:translate-x-2"
+                            />
+                            <span class="ml-2 transition-colors duration-300 group-hover:text-white">
+                                {service}
+                            </span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            <!-- Company -->
+            <div class="space-y-4">
+                <h3 class="text-lg font-semibold text-white">Entreprise</h3>
+                <ul class="space-y-2">
+                    {companyPages.map((item) => (
+                        <li class="flex items-center group cursor-pointer">
+                            <ChevronRight
+                                size={16}
+                                class="transform transition-transform duration-300 group-hover:translate-x-2"
+                            />
+                            <a
+                                href={item.path}
+                                class="ml-2 transition-colors duration-300 group-hover:text-white"
+                            >
+                                {item.label}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            <!-- Social Media -->
+            <div class="space-y-4">
+                <h3 class="text-lg font-semibold text-white">Réseaux sociaux</h3>
+                <div class="flex flex-wrap gap-4">
+                    {socialLinks.map((social) => {
+                        const Icon = social.icon;
+                        return (
+                            <a
+                                href={social.href}
+                                class="transform transition-all duration-300 hover:scale-110 hover:text-white"
+                                aria-label={social.label}
+                            >
+                                <Icon size={24} />
+                            </a>
+                        );
+                    })}
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="mt-12 pt-8 border-t border-gray-800 text-center">
+            <p class="text-sm">
+                © {new Date().getFullYear()} Zenkod. Tous droits réservés.
+            </p>
+        </div>
+    </div>
+</footer>

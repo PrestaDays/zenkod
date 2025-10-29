@@ -1,6 +1,6 @@
 ---
-import { FloatingCircles } from "../components/FloatingCircles";
-import { Content } from "../components/Content";
+import FloatingCircles from "../components/FloatingCircles.astro";
+import Content from "../components/Content.astro";
 ---
 
 <html lang="fr">
@@ -11,8 +11,8 @@ import { Content } from "../components/Content";
 </head>
 <body>
 <div class="min-h-screen flex items-center justify-center bg-white relative overflow-hidden">
-    <FloatingCircles client:load />
-    <Content client:load />
+    <FloatingCircles />
+    <Content />
 </div>
 
 <style>

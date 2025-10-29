@@ -2,23 +2,27 @@
     font-family: Vesper-black;
     font-style: normal;
     font-weight: 900;
+    font-display: swap;
     src: url('/fonts/Vesper/VesperLibre-Black.ttf');
 }
 @font-face {
     font-family: Vesper-bold;
     font-style: normal;
     font-weight: 700;
+    font-display: swap;
     src: url('/fonts/Vesper/VesperLibre-Bold.ttf');
 }
 @font-face {
     font-family: Vesper-medium;
     font-style: normal;
     font-weight: 500;
+    font-display: swap;
     src: url('/fonts/Vesper/VesperLibre-Medium.ttf');
 }
 @font-face {
     font-family: Vesper-regular;
     font-style: normal;
     font-weight: 400;
+    font-display: swap;
     src: url('/fonts/Vesper/VesperLibre-Regular.ttf');
 }
