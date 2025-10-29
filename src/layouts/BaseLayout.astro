@@ -15,6 +15,10 @@ const props = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/assets/logo_zenkod.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+
+    <link rel="preload" href="/fonts/Vesper/VesperLibre-Regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/assets/logo_line.png" as="image" />
+
     <title>{props.pageTitle}</title>
 </head>
 <body>

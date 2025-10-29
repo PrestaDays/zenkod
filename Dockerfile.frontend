@@ -6,8 +6,6 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# Exposer le port utilisé par votre application
-EXPOSE 4321
+EXPOSE 3000
 
-# Exécuter le serveur Node pour SSR
-CMD ["node", "./dist/server/entry.mjs"]
+CMD ["node", "server-standalone.js"]

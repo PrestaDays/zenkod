@@ -1,3 +1,11 @@
 node_modules
 .idea
 .vscode
+.git
+.github
+dist
+.env
+.env.local
+*.md
+.gitignore
+.DS_Store

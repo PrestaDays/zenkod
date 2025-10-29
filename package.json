@@ -8,13 +8,16 @@
     "start": "npm-run-all --parallel dev server",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "start:prod": "node server-standalone.js",
+    "astro": "astro",
+    "compress-images": "node scripts/compress-images.js"
   },
   "dependencies": {
     "@astrojs/node": "^9.1.2",
     "@astrojs/tailwind": "^6.0.0",
     "@aws-sdk/client-ses": "^3.758.0",
     "astro": "^5.4.2",
+    "compression": "^1.8.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
@@ -26,6 +29,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.15",
     "@types/nodemailer": "^6.4.17",
-    "npm-run-all": "^4.1.5"
+    "npm-run-all": "^4.1.5",
+    "sharp": "^0.34.4"
   }
 }
