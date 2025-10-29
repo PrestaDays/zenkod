@@ -1,0 +1,51 @@
+---
+// Génération des cercles côté serveur (build time)
+const generateCircles = (count: number) => {
+    return Array.from({ length: count }, () => {
+        const size = Math.floor(Math.random() * 16) + 8;
+        const left = Math.floor(Math.random() * 90) + 5;
+        const top = Math.floor(Math.random() * 90) + 5;
+        const duration = Number((Math.random() * 2 + 3).toFixed(2));
+        const delay = Number((Math.random() * 3).toFixed(2));
+
+        return { size, left, top, duration, delay };
+    });
+};
+
+const circles = generateCircles(50);
+---
+
+<style>
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0) translateX(0);
+            opacity: 0.1;
+        }
+        50% {
+            transform: translateY(-20px) translateX(5px);
+            opacity: 0.1;
+        }
+    }
+
+    .floating-circle {
+        animation: float var(--duration) ease-in-out infinite;
+        animation-delay: var(--delay);
+    }
+</style>
+
+<div class="absolute inset-0 z-0 overflow-hidden">
+    {circles.map((circle, i) => (
+        <div
+            key={i}
+            class="absolute rounded-full bg-gray-100 floating-circle"
+            style={`
+                width: ${circle.size}px;
+                height: ${circle.size}px;
+                left: ${circle.left}%;
+                top: ${circle.top}%;
+                --duration: ${circle.duration}s;
+                --delay: ${circle.delay}s;
+            `}
+        />
+    ))}
+</div>
