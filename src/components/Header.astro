@@ -4,7 +4,7 @@ import { Menu, X } from 'lucide-astro';
 
 <header
     id="main-header"
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-4"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-md py-2"
 >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center">
@@ -82,12 +82,8 @@ import { Menu, X } from 'lucide-astro';
 </header>
 
 <script>
-    // État pour le menu mobile
     let isMenuOpen = false;
-    let isScrolled = false;
-    let isPageScrollable = false;
 
-    // Éléments DOM
     const header = document.getElementById('main-header');
     const menuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -96,56 +92,17 @@ import { Menu, X } from 'lucide-astro';
     const mobileLinks = document.querySelectorAll('.mobile-link');
     const headerElements = document.querySelectorAll('.header-element');
 
-    // Vérifie si on est sur une page avec header transparent
-    const isAboutPage =
-        window.location.pathname === '/about' ||
-        window.location.pathname === '/services' ||
-        window.location.pathname === '/contact' ||
-        window.location.pathname === '/';
-
-    // Vérifie si la page est scrollable
-    function checkIfPageIsScrollable() {
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight;
-        isPageScrollable = documentHeight > windowHeight;
-        updateHeaderStyle();
-    }
-
-    // Met à jour le style du header
     function updateHeaderStyle() {
-        const shouldShowHeader = isScrolled || !isPageScrollable;
+        header?.classList.add('bg-white', 'shadow-md');
+        header?.classList.remove('bg-transparent', 'text-transparent', 'pointer-events-none');
+        header?.classList.replace('py-4', 'py-2');
 
-        if (shouldShowHeader) {
-            header?.classList.add('bg-white', 'shadow-md');
-            header?.classList.remove('bg-transparent', 'text-transparent', 'pointer-events-none');
-            header?.classList.replace('py-4', 'py-2');
-
-            headerElements.forEach(el => {
-                el.classList.remove('opacity-0');
-                el.classList.add('opacity-100');
-            });
-        } else {
-            header?.classList.remove('bg-white', 'shadow-md');
-            header?.classList.add('bg-transparent');
-            header?.classList.replace('py-2', 'py-4');
-
-            if (isAboutPage) {
-                header?.classList.add('text-transparent', 'pointer-events-none');
-                headerElements.forEach(el => {
-                    el.classList.remove('opacity-100');
-                    el.classList.add('opacity-0');
-                });
-            }
-        }
+        headerElements.forEach(el => {
+            el.classList.remove('opacity-0');
+            el.classList.add('opacity-100');
+        });
     }
 
-    // Gère le scroll
-    function handleScroll() {
-        isScrolled = window.scrollY > 0;
-        updateHeaderStyle();
-    }
-
-    // Toggle menu mobile
     function toggleMenu() {
         isMenuOpen = !isMenuOpen;
 
@@ -160,7 +117,6 @@ import { Menu, X } from 'lucide-astro';
         }
     }
 
-    // Ferme le menu mobile
     function closeMenu() {
         isMenuOpen = false;
         mobileMenu?.classList.add('hidden');
@@ -168,21 +124,8 @@ import { Menu, X } from 'lucide-astro';
         menuIconClose?.classList.add('hidden');
     }
 
-    // Initialisation
-    if (isAboutPage) {
-        checkIfPageIsScrollable();
+    updateHeaderStyle();
 
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('resize', checkIfPageIsScrollable);
-
-        const resizeObserver = new ResizeObserver(checkIfPageIsScrollable);
-        resizeObserver.observe(document.body);
-    } else {
-        isScrolled = true;
-        updateHeaderStyle();
-    }
-
-    // Event listeners
     menuButton?.addEventListener('click', toggleMenu);
     mobileLinks.forEach(link => {
         link.addEventListener('click', closeMenu);

@@ -14,7 +14,6 @@ const { target, label, duration = 2000 } = Astro.props;
 </div>
 
 <script>
-    // Fonction pour animer un compteur
     function animateCounter(element: HTMLElement, target: number, duration: number) {
         const countElement = element.querySelector('div') as HTMLDivElement;
         if (!countElement) return;
@@ -33,7 +32,6 @@ const { target, label, duration = 2000 } = Astro.props;
         }, 16);
     }
 
-    // Observer pour détecter quand les compteurs entrent dans le viewport
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -43,7 +41,6 @@ const { target, label, duration = 2000 } = Astro.props;
 
                 animateCounter(element, target, duration);
 
-                // Ne déclencher l'animation qu'une seule fois
                 observer.unobserve(element);
             }
         });
@@ -51,7 +48,6 @@ const { target, label, duration = 2000 } = Astro.props;
         threshold: 0
     });
 
-    // Observer tous les compteurs
     document.querySelectorAll('.counter').forEach(counter => {
         observer.observe(counter);
     });
