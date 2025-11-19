@@ -139,9 +139,7 @@
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        setLoading(true);
-        hideStatus();
-
+        // Récupère les données AVANT de désactiver les inputs
         const formData = new FormData(form);
         const data = {
             nom: formData.get('nom'),
@@ -150,6 +148,9 @@
             email: formData.get('email'),
             message: formData.get('message')
         };
+
+        setLoading(true);
+        hideStatus();
 
         try {
             const response = await fetch('/api/send-email', {
