@@ -13,10 +13,10 @@
     "compress-images": "node scripts/compress-images.js"
   },
   "dependencies": {
-    "@astrojs/node": "^9.1.2",
-    "@astrojs/tailwind": "^6.0.0",
+    "@astrojs/node": "^9.5.1",
+    "@astrojs/tailwind": "^6.0.2",
     "@aws-sdk/client-ses": "^3.758.0",
-    "astro": "^5.4.2",
+    "astro": "^5.15.9",
     "compression": "^1.8.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
