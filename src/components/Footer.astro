@@ -23,21 +23,21 @@ const companyPages = [
             <div class="space-y-4">
                 <h2 class="text-2xl font-bold text-white">Zenkod</h2>
                 <div class="space-y-2">
-                    <div class="flex items-center space-x-2 transform transition-transform duration-300 hover:translate-x-2">
-                        <Mail size={16} />
-                        <a href="mailto:zenkod@gmail.com" class="hover:text-white">
+                    <div class="flex items-center group cursor-pointer">
+                        <Mail size={16} class="transform transition-transform duration-300 group-hover:translate-x-2" />
+                        <a href="mailto:zenkod@gmail.com" class="ml-2 transition-colors duration-300 group-hover:text-white">
                             zenkod@gmail.com
                         </a>
                     </div>
-                    <div class="flex items-center space-x-2 transform transition-transform duration-300 hover:translate-x-2">
-                        <ChevronRight size={16} />
-                        <a href="/rgpd" class="hover:text-white">
+                    <div class="flex items-center group cursor-pointer">
+                        <ChevronRight size={16} class="transform transition-transform duration-300 group-hover:translate-x-2" />
+                        <a href="/rgpd" class="ml-2 transition-colors duration-300 group-hover:text-white">
                             RGPD
                         </a>
                     </div>
-                    <div class="flex items-center space-x-2 transform transition-transform duration-300 hover:translate-x-2">
-                        <ChevronRight size={16} />
-                        <a href="/mentions-legales" class="hover:text-white">
+                    <div class="flex items-center group cursor-pointer">
+                        <ChevronRight size={16} class="transform transition-transform duration-300 group-hover:translate-x-2" />
+                        <a href="/mentions-legales" class="ml-2 transition-colors duration-300 group-hover:text-white">
                             Mentions légales
                         </a>
                     </div>
@@ -49,9 +49,12 @@ const companyPages = [
                 <h3 class="text-lg font-semibold text-white">Services</h3>
                 <ul class="space-y-2">
                     {services.map((service) => (
-                        <li class="flex items-center space-x-2 transform transition-transform duration-300 hover:translate-x-2 cursor-pointer">
-                            <ChevronRight size={16} />
-                            <span class="hover:text-white">
+                        <li class="flex items-center group cursor-pointer">
+                            <ChevronRight
+                                size={16}
+                                class="transform transition-transform duration-300 group-hover:translate-x-2"
+                            />
+                            <span class="ml-2 transition-colors duration-300 group-hover:text-white">
                                 {service}
                             </span>
                         </li>
@@ -64,11 +67,14 @@ const companyPages = [
                 <h3 class="text-lg font-semibold text-white">Entreprise</h3>
                 <ul class="space-y-2">
                     {companyPages.map((item) => (
-                        <li class="flex items-center space-x-2 transform transition-transform duration-300 hover:translate-x-2 cursor-pointer">
-                            <ChevronRight size={16} />
+                        <li class="flex items-center group cursor-pointer">
+                            <ChevronRight
+                                size={16}
+                                class="transform transition-transform duration-300 group-hover:translate-x-2"
+                            />
                             <a
                                 href={item.path}
-                                class="hover:text-white"
+                                class="ml-2 transition-colors duration-300 group-hover:text-white"
                             >
                                 {item.label}
                             </a>

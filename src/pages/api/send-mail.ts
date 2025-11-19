@@ -25,7 +25,13 @@ export const POST: APIRoute = async ({ request }) => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify({
+                nom: data.nom,
+                prenom: data.prenom,
+                email: data.email,
+                message: data.message,
+                subject: `Nouveau projet: ${data.projet}`
+            })
         });
 
         const result = await response.json();
