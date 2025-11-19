@@ -1,0 +1,2 @@
+# Forcer LF pour les fichiers shell (pas de conversion Windows CRLF)
+*.sh text eol=lf
