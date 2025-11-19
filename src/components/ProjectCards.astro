@@ -4,7 +4,7 @@ const projects = [
         image: "/assets/logo_althers.png",
         title: "iWorkout",
         description: "iWorkout est une application mobile propulsée par IA qui fourni un plan de musculation en fonction des objectifs définis par l'utilisateur.",
-        link: ""
+        link: "https://apps.apple.com/fr/app/iworkout/id6745475949"
     },
     {
         image: "/assets/logo_raltech.png",
@@ -13,10 +13,10 @@ const projects = [
         link: "https://raltech.school/"
     },
     {
-        image: "/assets/logo_black.png",
-        title: "Zenkod",
-        description: "Zenkod est une plateforme de prestation de services informatiques qui propose des solutions sur mesure pour les entreprises.",
-        link: ""
+        image: "/assets/logo_quiz.png",
+        title: "QuizMaster",
+        description: "QuizMaster est une application web interactive permettant de participer à des quiz en temps réel.",
+        link: "https://quiz.lucesf.com/"
     }
 ];
 ---
@@ -48,6 +48,7 @@ const projects = [
                     {project.link && (
                         <a
                             href={project.link}
+                            target="_blank"
                             class="bg-accent text-white px-6 py-2 rounded-lg hover:bg-accent/90 transition-colors duration-200"
                         >
                             Voir le projet
