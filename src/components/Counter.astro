@@ -3,18 +3,19 @@ interface Props {
     target: number;
     label: string;
     duration?: number;
+    suffix?: string;
 }
 
-const { target, label, duration = 2000 } = Astro.props;
+const { target, label, duration = 2000, suffix = '' } = Astro.props;
 ---
 
-<div class="counter text-center" data-target={target} data-duration={duration}>
-    <div class="text-5xl font-bold text-[#2A4747]">0</div>
+<div class="counter text-center" data-target={target} data-duration={duration} data-suffix={suffix}>
+    <div class="text-5xl font-bold text-[#2A4747]">0{suffix}</div>
     <div class="text-sm mt-2 text-gray-600 uppercase">{label}</div>
 </div>
 
 <script>
-    function animateCounter(element: HTMLElement, target: number, duration: number) {
+    function animateCounter(element: HTMLElement, target: number, duration: number, suffix: string) {
         const countElement = element.querySelector('div') as HTMLDivElement;
         if (!countElement) return;
 
@@ -24,10 +25,10 @@ const { target, label, duration = 2000 } = Astro.props;
         const timer = setInterval(() => {
             start += step;
             if (start >= target) {
-                countElement.textContent = target.toString();
+                countElement.textContent = target.toString() + suffix;
                 clearInterval(timer);
             } else {
-                countElement.textContent = start.toString();
+                countElement.textContent = start.toString() + suffix;
             }
         }, 16);
     }
@@ -38,8 +39,9 @@ const { target, label, duration = 2000 } = Astro.props;
                 const element = entry.target as HTMLElement;
                 const target = parseInt(element.dataset.target || '0', 10);
                 const duration = parseInt(element.dataset.duration || '2000', 10);
+                const suffix = element.dataset.suffix || '';
 
-                animateCounter(element, target, duration);
+                animateCounter(element, target, duration, suffix);
 
                 observer.unobserve(element);
             }
