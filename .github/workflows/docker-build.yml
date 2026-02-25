@@ -32,3 +32,5 @@ jobs:
           file: ./Dockerfile.backend
           push: true
           tags: lucesf/zenkod-backend:latest
+          cache-from: type=registry,ref=lucesf/zenkod-backend:latest
+          cache-to: type=inline
