@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Arrêter et supprimer tous les containers
-docker-compose down --remove-orphans
+docker compose down --remove-orphans
 
 # Pull les nouvelles images
-docker-compose pull
+docker compose pull
 
 # Redémarrer avec les nouvelles images
-docker-compose up -d
+docker compose up -d --force-recreate
 
 # Nettoyer les anciennes images et volumes après 10s
 sleep 10
