@@ -1,0 +1,11 @@
+# Robots.txt pour ZenKod
+# https://zenkod.fr
+
+User-agent: *
+Allow: /
+
+# Fichiers à ne pas indexer
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://zenkod.fr/sitemap-index.xml
