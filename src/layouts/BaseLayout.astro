@@ -5,21 +5,40 @@ import '../styles/global.css';
 
 type BaseLayoutProps = {
     pageTitle: string;
+    description: string;
+    ogImage?: string;
 };
 
-const props = Astro.props;
+const { pageTitle, description, ogImage = "/assets/logo_zenkod.png" } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, "https://zenkod.fr");
 ---
 <html lang="fr">
 <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/assets/logo_zenkod.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
 
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="ZenKod" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" type="image/svg+xml" href="/assets/logo_zenkod.png" />
     <link rel="preload" href="/fonts/Vesper/VesperLibre-Regular.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="preload" href="/assets/logo_line.png" as="image" />
-
-    <title>{props.pageTitle}</title>
 </head>
 <body>
 <Header />

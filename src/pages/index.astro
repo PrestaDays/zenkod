@@ -3,10 +3,11 @@ import '../styles/index.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCards from '../components/ProjectCards.astro';
 
-const pageTitle = "Home Page";
+const pageTitle = "ZenKod | Agence Web - Création de Sites & Applications";
+const description = "ZenKod, agence web créative. Sites vitrines, e-commerce, applications mobiles et API sur mesure. Découvrez nos réalisations et transformez votre présence digitale.";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle={pageTitle} description={description}>
   <main class="min-h-screen w-full pt-16">
     <div class="flex flex-col items-center pb-12">
       <div class="text-center space-y-8 mb-16 w-full mx-auto bg-primary p-8 rounded-lg">

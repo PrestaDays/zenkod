@@ -2,9 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const email = "zenkod@gmail.com"
+const pageTitle = "RGPD & Mentions Légales | ZenKod";
+const description = "Politique de confidentialité, conditions générales de vente et informations RGPD de ZenKod. Découvrez comment nous protégeons vos données personnelles.";
 ---
 
-<BaseLayout pageTitle="RDGP - Politique de confidentialité">
+<BaseLayout pageTitle={pageTitle} description={description}>
     <article class="prose m-auto [&amp;_p]:text-justify [&amp;_p]:text-base font-light my-16 p-4">
         <h1>Politique de Remboursement - Zenkod</h1>
         <section>
