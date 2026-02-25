@@ -27,11 +27,3 @@ services:
     image: lucesf/zenkod-backend:latest
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
-
-  watchtower:
-    image: containrrr/watchtower
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 30 --cleanup
-    environment:
-      - WATCHTOWER_LABEL_ENABLE=true
