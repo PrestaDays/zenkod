@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+const appName = "iWorkout"; 
+const developerName = "Anthony CAVAGNE";
+
 const email = "zenkod@gmail.com"
 const pageTitle = "RGPD & Mentions Légales | zenkod";
 const description = "Politique de confidentialité, conditions générales de vente et informations RGPD de zenkod. Découvrez comment nous protégeons vos données personnelles.";
@@ -198,4 +201,47 @@ const description = "Politique de confidentialité, conditions générales de ve
         </p>
 
     </article>
+
+    <article class="prose m-auto [&amp;_p]:text-justify [&amp;_p]:text-base font-light my-16 p-4">
+        <h1>Politique de Confidentialité - {appName}</h1>
+    
+        <section>
+            <h2>1. Responsable du Traitement et Développeur</h2>
+            <p>
+                L'application <strong>{appName}</strong> est développée et exploitée par 
+                <strong>{developerName}</strong>.
+            </p>
+            <p>Coordonnées :</p>
+            <ul>
+                <li>Email : anthony.cavge@gmail.com</li>
+                <li>Adresse : 2400 Av. des Moulins 34080 Montpellier France</li>
+            </ul>
+        </section>
+
+    <section>
+        <h2>2. Collecte et Utilisation des Données</h2>
+        <p>Nous collectons les informations suivantes pour assurer le bon fonctionnement de l'application :</p>
+        <ul>
+            <li><strong>Données fournies par l'utilisateur :</strong> Nom, adresse e-mail ou toute information saisie lors de la création d'un compte.</li>
+            <li><strong>Données d'utilisation :</strong> Statistiques anonymes sur la façon dont vous interagissez avec les fonctionnalités de l'application.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>3. Services Tiers et Autorisations</h2>
+        <p>L'application peut utiliser des services tiers (comme Google Analytics for Firebase) qui collectent des informations pour vous identifier ou améliorer l'expérience utilisateur.</p>
+        <p>L'application peut vous demander l'accès à certaines fonctionnalités (Caméra, Stockage, etc.). Ces autorisations ne sont utilisées que si vous les acceptez explicitement et pour les besoins de l'application.</p>
+    </section>
+
+    <section>
+        <h2>4. Mises à jour de cette politique</h2>
+        <p>
+            Nous pouvons mettre à jour notre politique de confidentialité de temps à autre. Nous vous informerons de tout changement en publiant la nouvelle version sur cette page.
+        </p>
+        <p><strong>Dernière mise à jour :</strong> {new Date().toLocaleDateString('fr-FR')}</p>
+    </section>
+
+
+    </article>
+
 </BaseLayout>
